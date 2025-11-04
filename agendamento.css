@@ -1,0 +1,213 @@
+body {
+  background: linear-gradient(135deg, #eaf6fb 0%, #f7f7b6 100%);
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #3a506b;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+.site-header {
+  background: linear-gradient(90deg, #f6d6d6 0%, #eaf6fb 100%);
+  border-bottom: 2px solid #7ec4cf;
+  box-shadow: 0 2px 12px #7ec4cf22;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 40px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #7ec4cf;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+.logo-header {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 12px #7ec4cf;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-btn {
+  color: #3a506b;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 10px 22px;
+  border-radius: 22px;
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.nav-btn:hover,
+.nav-btn:focus {
+  background: #7ec4cf;
+  color: #fff;
+  transform: translateY(-4px) scale(1.07);
+  box-shadow: 0 4px 18px #7ec4cf44;
+}
+.nav-btn.active {
+  background: #7ec4cf;
+  color: #fff;
+  font-weight: 700;
+}
+.agendamento-section {
+  max-width: 600px;
+  margin: 48px auto;
+  background: #fff8;
+  border-radius: 22px;
+  box-shadow: 0 2px 18px #7ec4cf33;
+  padding: 40px 32px;
+  text-align: center;
+}
+.agendamento-section h2 {
+  font-size: 2.2rem;
+  color: #7ec4cf;
+  margin-bottom: 18px;
+  font-weight: 800;
+  text-shadow: 0 2px 14px rgb(165, 199, 245);
+}
+.agendamento-section p {
+  font-size: 1.18rem;
+  margin-bottom: 28px;
+  color: #3a506b;
+}
+.agendamento-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 18px;
+}
+.agendamento-form label {
+  font-weight: 600;
+  color: #3a506b;
+  margin-bottom: 6px;
+  text-align: left;
+}
+.agendamento-form input,
+.agendamento-form select,
+.agendamento-form textarea {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #7ec4cf;
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #eaf6fb;
+  color: #3a506b;
+  outline: none;
+  transition: border 0.2s;
+}
+.agendamento-form input:focus,
+.agendamento-form select:focus,
+.agendamento-form textarea:focus {
+  border-color: #3a506b;
+}
+.agendamento-form button {
+  background: #7ec4cf;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 18px;
+  padding: 12px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  margin-top: 12px;
+  box-shadow: 0 2px 12px #7ec4cf44;
+  transition: background 0.2s;
+}
+.agendamento-form button:hover {
+  background: #f7f7b6;
+  color: #3a506b;
+}
+.msg-sucesso {
+  color: #2e7d32;
+  background: #eaf6fb;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 18px;
+  font-weight: 600;
+  display: none;
+}
+.site-footer {
+  background: #fff8;
+  border-top: 2.5px solid #7ec4cf;
+  padding: 0;
+  margin-top: 48px;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 0 18px 0;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #7ec4cf;
+}
+.logo-footer {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 12px #7ec4cf88;
+}
+.footer-info {
+  color: #3a506b;
+  font-size: 1rem;
+}
+.footer-info a.social {
+  color: #7ec4cf;
+  text-decoration: none;
+  margin: 0 4px;
+  font-weight: 600;
+}
+.footer-info a.social:hover {
+  text-decoration: underline;
+}
+@media (max-width: 900px) {
+  .header-inner, .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .agendamento-section {
+    padding: 24px 8px;
+  }
+}
+@media (max-width: 600px) {
+  .brand {
+    font-size: 1.2rem;
+  }
+  .logo-header, .logo-footer {
+    width: 32px;
+    height: 32px;
+  }
+  .footer-inner strong {
+    font-size: 1rem;
+  }
+}

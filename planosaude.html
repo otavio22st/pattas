@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Planos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="planosaude.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+  <img src="imagens/logooo.png" alt="PPATAS Logo" class="logo-header">
+  
+</a>
+      
+      
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="nav-btn">Início</a>
+      <a href="telarural.html" class="nav-btn">Rural</a>
+      <a href="teladomiciliar.html" class="nav-btn">Domiciliar</a>
+      <a href="planosaude.html" class="nav-btn active">Plano de Saúde Rural</a>
+      <a href="agendamento.html" class="nav-btn btn agendar-destaque">Agendamentos</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section class="hero-petlove">
+      <h1 class="titulo-petlove">Escolha o plano ideal para cuidar do seu pet</h1>
+      <div class="carousel-petlove">
+        <button class="arrow-petlove left" id="arrowLeft">&#8592;</button>
+        <div class="cards-petlove" id="cardsPetlove">
+          <!-- Os cards serão inseridos via JS -->
+        </div>
+        <button class="arrow-petlove right" id="arrowRight">&#8594;</button>
+      </div>
+      <div class="dots-petlove" id="dotsPetlove"></div>
+      <button class="btn-consulta-petlove">Consultar outra região</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>PPATAS</strong>
+        <p>Planos de saúde que cuidam de pessoas e pets.</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="planosaude.html">Planos</a></li>
+          <li><a href="agendamento.html">Agendamentos</a></li>
+        </ul>
+      </nav>
+      <div class="socials"></div>
+    </div>
+    <div class="attribution">© <span id="year"></span> PPATAS — Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Planos para o carrossel
+    const planos = [
+      {
+        nome: "Leve",
+        info: "O mais em conta",
+        preco: "R$ 14,90/mês",
+        local: "em São Paulo e região"
+      },
+      {
+        nome: "Tranquilo",
+        info: "Para cuidados de rotina",
+        preco: "R$ 39,90/mês",
+        local: "em São Paulo e região"
+      },
+      {
+        nome: "Ideal",
+        info: "Melhor custo benefício",
+        preco: "R$ 99,90/mês",
+        local: "em São Paulo e região"
+      },
+      {
+        nome: "Premium",
+        info: "Cobertura nacional e reembolso",
+        preco: "R$ 149,90/mês",
+        local: "em todo Brasil"
+      },
+      {
+        nome: "Total",
+        info: "Inclui vacinas e check-ups",
+        preco: "R$ 199,90/mês",
+        local: "em todo Brasil"
+      }
+    ];
+
+    let current = 0;
+
+    function renderCards() {
+      const cards = document.getElementById('cardsPetlove');
+      cards.innerHTML = '';
+      for (let i = current; i < current + 3 && i < planos.length; i++) {
+        const plano = planos[i];
+        // Destaque sempre o card do meio
+        const destaqueClass = (i === current + 1) ? 'card-petlove destaque' : 'card-petlove';
+        cards.innerHTML += `
+          <div class="${destaqueClass}">
+            <div class="card-title">Petlove<br><span class="card-nome">${plano.nome}</span></div>
+            <div class="card-info">${plano.info}</div>
+            <div class="card-preco">${plano.preco}</div>
+            <div class="card-local">${plano.local}</div>
+            <button class="btn-petlove">Conferir cobertura</button>
+            <a href="#" class="contratar-petlove">Contratar</a>
+          </div>
+        `;
+      }
+      renderDots();
+    }
+
+    function renderDots() {
+      const dots = document.getElementById('dotsPetlove');
+      dots.innerHTML = '';
+      for (let i = 0; i <= planos.length - 3; i++) {
+        dots.innerHTML += `<span class="dot${i === current ? ' active' : ''}"></span>`;
+      }
+    }
+
+    document.getElementById('arrowLeft').onclick = function() {
+      if (current > 0) {
+        current--;
+        renderCards();
+      }
+    };
+    document.getElementById('arrowRight').onclick = function() {
+      if (current < planos.length - 3) {
+        current++;
+        renderCards();
+      }
+    };
+
+    renderCards();
+  </script>
+</body>
+</html>
